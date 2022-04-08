@@ -101,9 +101,11 @@ const createCard = async () => {
         };
 
         incorrectStatusBtn.onclick = async () => {
-            saveData.cards[idx].canShowAt = new Date(
+            card.canShowAt = new Date(
                 new Date().getTime() + 60000
             ).getTime();
+            
+            card.correctCount = 0;
 
             saveData.cards[idx] = card;
 
