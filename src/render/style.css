@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+    background-color: rgb(45, 45, 45);
+    color: white;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 60px;
+    margin: 0;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 40px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 50px;
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+p {
+    font-weight: 400;
+    font-size: 35px;
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+button {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(0, 119, 255);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: rgb(0, 70, 150);
+}
+
+.main-btn {
+    padding: 15px 200px;
+    margin: 30px;
+}
+
+.small-btn {
+    padding: 10px 100px;
+}
+
+.container {
+    text-align: center;
+}
+
+input,
+textarea,
+button {
+    font-family: "Ubuntu", sans-serif;
+}
+
+textarea {
+    resize: none;
+}
+
+input,
+textarea {
+    padding: 10px;
+    font-size: 20px;
+    width: 600px;
+    margin: 10px 0;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+textarea {
+    height: 100px;
+}
+
+@keyframes slidein {
+    from {
+        bottom: -80px;
+    }
+    to {
+        bottom: 20px;
+    }
+}
+
+@keyframes slideout {
+    from {
+        bottom: 20px;
+    }
+    tp {
+        bottom: -80px;
+    }
+}
+
+.alert {
+    background-color: white;
+    width: 600px;
+    padding: 20px 200px;
+    border-radius: 5px;
+    border: solid 3px rgb(0, 70, 150);
+    outline: none;
+    position: absolute;
+    transform: translateX(50%);
+    color: black;
+    text-align: center;
+    font-size: 22px;
+}
+
+.slide-in {
+    animation-name: slidein;
+    animation-duration: 0.4s;
+    animation-timing-function: ease;
+    bottom: 20px;
+}
+
+.slide-out {
+    animation-name: slideout;
+    animation-duration: 0.4s;
+    animation-timing-function: ease;
+    bottom: -80px;
+}
+
+footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
