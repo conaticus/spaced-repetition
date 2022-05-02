@@ -1,13 +1,5 @@
-export const showAlert = (text) => {
-    const alertEl = document.createElement("div");
-    alertEl.innerText = text;
-    alertEl.className = "alert slide-in";
-    document.body.appendChild(alertEl);
+const { ipcRenderer } = require("electron")
 
-    setTimeout(() => {
-        alertEl.className = "alert slide-out";
-        setTimeout(() => {
-            alertEl.remove();
-        }, 400);
-    }, 3000);
+export const showAlert = (text) => {
+    ipcRenderer.send("createPopup",text);
 };
