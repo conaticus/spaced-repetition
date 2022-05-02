@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>popup</title>
+</head>
+<body>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: "Ubuntu", sans-serif;
+      background-color: transparent;
+    }
+    .popup {
+      background-color: rgb(45, 45, 45);
+      right: 10px;
+      transform: translateY(-50%);
+      border-radius: 5px;
+      border: solid 3px rgb(0, 70, 150);
+      height: calc(100% - 20px);
+      width: fit-content;
+      position: absolute;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
+      font-weight: 400;
+      -moz-user-select: none;
+      user-select: none;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    @keyframes slidein {
+        from {
+            top: calc(100% + 100px);
+        }
+        to {
+            top: 50%;
+        }
+    }
+    @keyframes slideout {
+        from {
+            top: 50%;
+        }
+        to {
+            top: calc(100% + 100px);
+        }
+    }
+    .slide-in {
+        animation-name: slidein;
+        animation-duration: 0.4s;
+        animation-timing-function: ease;
+        top: 50%;
+    }
+    .slide-out {
+        animation-name: slideout;
+        animation-duration: 0.4s;
+        animation-timing-function: ease;
+        top: calc(100% + 100px);
+    }
+  </style>
+  <script>
+    const { ipcRenderer } = require("electron");
+
+    ipcRenderer.on("createPopup2", (event,arg) => {
+      document.body.insertAdjacentHTML("afterbegin",`<div class="popup slide-in">${arg}</div>`)
+      setTimeout(() => {
+          document.querySelector(".popup").classList.remove("slide-in");
+          document.querySelector(".popup").classList.add("slide-out");
+          setTimeout(() => {
+            document.querySelector(".popup").remove();
+          }, 400);
+      }, 3000);
+    })
+  </script>
+</body>
+</html>
